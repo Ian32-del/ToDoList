@@ -1,0 +1,79 @@
+.App {
+  text-align: center;
+  
+}
+body{
+  background: #8758ff;
+}
+.todo-input::placeholder{
+  color: #ffffff4d;
+
+}
+.ToDoForm {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  width: 400px; 
+  margin: 0 auto; 
+  background: black;
+  text-align: center;
+
+}
+.todo-input {
+  width: 300px; 
+  height: 20px; 
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 9.5px;
+  border-radius: 10px;
+  background-color:#8758ff;
+}
+
+.todo-btn{
+  background: #8758ff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.ToDo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #8758ff;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+.fa-trash{
+  margin-left: 0.75rem;
+
+}
+.Todo {
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  width: 300px; /* Adjust the width as needed */
+  margin: 0 auto; /* Center horizontally */
+  margin-top: 15px;
+  height: 2cm;
+}
+
+.icon-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px; /* Add space between the text and icons */
+}
+
+.icon-box svg {
+  font-size: 20px; /* Adjust the icon size as needed */
+  cursor: pointer;
+  color: #333; /* Adjust the icon color as needed */
+}
