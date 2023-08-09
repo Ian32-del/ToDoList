@@ -77,3 +77,14 @@ body{
   cursor: pointer;
   color: #333; /* Adjust the icon color as needed */
 }
+.ToDoWrapper{
+  border: 2px solid black;
+    padding: 20px;
+    margin-top: 20px;
+    margin: 0 auto;
+    width: 500px;
+    
+    
+    
+  
+}
