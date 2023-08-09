@@ -1,49 +1,59 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import ToDoForm from "./ToDoForm";
 import { v4 as uuidv4 } from 'uuid'
 import ToDo from "./ToDo";
-import EditToDoForm from "./EditToDo";
+import EditToDoForm from "./EditToDoForm";
 uuidv4();
 
 const ToDoWrapper = () => {
-    const[todos , setTodos] = useState([])
+    const [todos, setTodos] = useState([])
 
     const addTodo = todo => {
-        setTodos([...todos , {id : uuidv4(), task : todo, 
-        completed: false , isEditing: false }])
+        setTodos([...todos, {
+            id: uuidv4(), task: todo,
+            completed: false, isEditing: false
+        }])
         console.log(todos)
     }
 
     const toggleComplete = id => {
-        setTodos(todos.map(todo => todo.id === id ? 
-            {...todo , completed : !todo.completed}: todo))
+        setTodos(todos.map(todo => todo.id === id ?
+            { ...todo, completed: !todo.completed } : todo))
     }
     const deleteToDo = id => {
-        setTodos(todos.filter (todo => todo.id !== id))
+        setTodos(todos.filter(todo => todo.id !== id))
     }
     const editTodo = id => {
-        setTodos(todos.map(todo => todo.id === id ? 
-            {...todo , isEditing : !todo.isEditing }: todo))
+        setTodos(todos.map(todo => todo.id === id ?
+            { ...todo, isEditing: !todo.isEditing } : todo))
+    }
+    const editTask = (task, id) => {
+        setTodos(todos.map(todo => todo.id === id ? {
+            todo, task, isEditing: !todo.isEditing
+        } : todo
+        ))
     }
 
 
 
-    return(
+    return (
         <div className="ToDoWrapper">
             <h1>Get Things Done</h1>
-            <ToDoForm addTodo={addTodo}/>
+            <ToDoForm addTodo={addTodo} />
             {todos.map((todo, index) => (
                 todo.isEditing ? (
-                    <EditTodoForm/>
+                    <EditToDoForm EditTodo={editTask} task={todo} key={index} />
                 ) : (
-                    <ToDo task={todo} key={index}
-                toggleComplete={toggleComplete}
-                deleteToDo={deleteToDo}
-                editTodo={editTodo}/>
+                    <ToDo
+                        task={todo}
+                        key={index}
+                        toggleComplete={toggleComplete}
+                        deleteToDo={deleteToDo}
+                        editTodo={editTodo} />
 
                 )
-                
-                
+
+
             ))}
         </div>
     )
